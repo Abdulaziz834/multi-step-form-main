@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+  <script src="./script.js" defer></script>
+  <title>Frontend Mentor | Multi-step form</title>
+</head>
+
+<body>
+  <main>
+    <nav>
+      <ul class="user-step">
+        <li class="step active">
+          <sub class="number">Step 1</sub>
+          <p class="name semi-bold">Your info</p>
+        </li>
+        <li class="step">
+          <sub class="number">Step 2</sub>
+          <p class="name semi-bold">Select plan</p>
+        </li>
+        <li class="step">
+          <sub class="number">Step 3</sub>
+          <p class="name semi-bold">Add-ons</p>
+        </li>
+        <li class="step">
+          <sub class="number">Step 4</sub>
+          <p class="name semi-bold">Summary</p>
+        </li>
+      </ul>
+    </nav>
+    <content data-step="1">
+      <h1 class="title bold">Personal info</h1>
+
+      <p class="secondary-text">Please provide your name, email address, and phone number.</p>
+
+      <form method="post">
+
+        <div class="user-input">
+          <label for="user-name" class="input-label">Name</label>
+          <input type="text" name="f-name" id="user-name" class="input-field" placeholder="e.g. Stephen King"
+          minlength="4" required>
+        </div>
+        <div class="user-input">
+          <label for="email" class="input-label">Email Address</label>
+          <input type="email" required name="user-mail" id="email" class="input-field" placeholder="e.g. stephenking@lorem.com">
+        </div>
+        <div class="user-input">
+          <label for="3" class="input-label">Phone Number</label>
+          <input type="tel" name="tel-num" id="3" required class="input-field" placeholder="e.g. +1 234 567 890">
+        </div>
+      </form>
+
+    </content>
+
+
+
+
+    <content data-step="2" style="display: none;">
+      <h1 class="title bold">Select your plan</h1>
+      <p class="secondary-text">You have the option of monthly or yearly billing.</p>
+      <div class="plans">
+        <div class="plan active">
+          <object data="./assets/images/icon-arcade.svg" class="icon"></object>
+          <h3 class="name">Arcade</h3>
+          <p class="price" data-category="plans" data-sequence="0">$9/mo</p>
+          <span class="sale">2 months free</span>
+        </div>
+        <div class="plan">
+          <object data="./assets/images/icon-advanced.svg" class="icon"></object>
+          <h3 class="name">Advanced</h3>
+          <p class="price" data-category="plans" data-sequence="1">$12/mo</p>
+          <span class="sale">2 months free</span>
+        </div>
+        <div class="plan">
+          <object data="./assets/images/icon-pro.svg" class="icon"></object>
+          <h3 class="name">Pro</h3>
+          <p class="price" data-category="plans" data-sequence="2">$15/mo</p>
+          <span class="sale">2 months free</span>
+        </div>
+      </div>
+      <div class="switch">
+        <div class="period">Monthly</div>
+        <div class="toggle">
+          <input type="checkbox" id="period">
+          <span class="slider"></span>
+        </div>
+        <div class="period">Yearly</div>
+      </div>
+    </content>
+
+
+
+
+
+    <content data-step="3" style="display: none;">
+      <h1 class="title bold">Pick add-ons</h1>
+      <p class="secondary-text">Add-ons help enhance your gaming experience.</p>
+      <div class="tabs">
+        <div class="tab">
+          <input type="checkbox" data-sequence="0">
+          <h3 class="name">Online service</h3>
+          <p class="description">Access to multiplayer games</p>
+          <span class="price plus" data-category="addOns" data-sequence="0">+$1/mo</span>
+        </div>
+        <div class="tab">
+          <input type="checkbox" data-sequence="1">
+          <h3 class="name">Larger storage</h3>
+          <p class="description">Extra 1TB of cloud save</p>
+          <span class="price plus" data-category="addOns" data-sequence="1">+$2/mo</span>
+        </div>
+        <div class="tab">
+          <input type="checkbox" data-sequence="2">
+          <h3 class="name">Customizable Profile</h3>
+          <p class="description">Custom theme on your profile</p>
+          <span class="price plus" data-category="addOns" data-sequence="2">+$2/mo</span>
+        </div>
+      </div>
+    </content>
+
+    <content data-step="4" style="display: none;">
+      <h1 class="title bold">Finishing up</h1>
+      <p class="secondary-text">Double-check everything looks OK before confirming.</p>
+      <summary>
+        <div class="picked-plan">
+          <h2 class="name">Arcade (Monthly)</h2>
+          <div class="price plus">+$9/mo</div>
+          <button type="reset" class="change">Change</button>
+          <ul class="selected-add-ons"></ul>
+        </div>
+        <div class="total">
+          <p>Total (per month)</p>
+          <h2 class="price plus">+$12/mo</h2>
+        </div>
+      </summary>
+    </content>
+
+    <content data-step="5" style="display: none;">
+      <object data="./assets/images/icon-thank-you.svg"></object>
+      <h2 class="title bold">Thank you!</h2>
+      <p class="description">Thanks for confirming your subscription! We hope you have fun using our platform. If you ever need support, please feel free to email us at support@loremgaming.com.</p>
+    </content>
+
+    <footer>
+      <ul class="buttons">
+        <li class="button"><button class="confirm semi-bold" data-action="next">Confirm</button></li>
+        <li class="button" style="margin-left: auto;"><button class="next semi-bold" type="submit" data-action="next">Next Step</button></li>
+        <li class="button"><button class="go-back semi-bold" type="button" data-action="back">Go Back</button></li>
+      </ul>
+    </footer>
+  </main>
+</body>
+
+</html>
